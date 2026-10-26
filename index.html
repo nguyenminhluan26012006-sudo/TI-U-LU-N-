@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Du Lịch Văn Hiến - Trang chủ</title>
+    <meta name="description" content="Văn Hiến Travel - Tour du lịch Đà Lạt, Nha Trang, Phú Quốc, Sa Pa, Hà Nội - Hạ Long, Đà Nẵng - Hội An, Huế, Ninh Bình, Hà Giang. Giá tốt, khởi hành từ TP.HCM.">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+    <div class="logo-text">
+        <h1><a href="index.html" class="active">VĂN HIẾN TRAVEL</a></h1>
+        <p>Cùng bạn khám phá những hành trình tuyệt vời</p>
+    </div>
+</div>
+        <nav>
+            <a href="index.html" >Trang chủ</a>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="tintuc.html">Tin tức</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <a href="lichsu.html">Lịch sử giao dịch</a>
+            <a href="faq.html">Câu hỏi thường gặp</a>
+            <a href="chinhsach.html">Chính sách</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Khám phá Việt Nam<br>theo cách của bạn</h2>
+            <p>Những hành trình tuyệt vời, những trải nghiệm đáng nhớ<br>đang chờ bạn khám phá!</p>
+            <a href="#tour-list" class="btn-hero">Khám phá tour →</a>
+        </div>
+    </section>
+
+    <div class="container" id="tour-list">
+        <h2 class="section-title">Tour du lịch nổi bật</h2>
+        <p class="section-subtitle">Khám phá những điểm đến hấp dẫn nhất cùng Văn Hiến Travel</p>
+
+        <!-- THANH TÌM KIẾM -->
+        <div class="search-box" style="max-width: 600px; margin: 0 auto 15px;">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-tour-home" placeholder="Bạn muốn đi đâu? (VD: Đà Lạt, Nha Trang...)">
+        </div>
+
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label for="filter-region">Vùng miền</label>
+                <select id="filter-region">
+                    <option value="all">Tất cả</option>
+                    <option value="bac">Miền Bắc</option>
+                    <option value="trung">Miền Trung</option>
+                    <option value="nam">Miền Nam</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="filter-price">Khoảng giá</label>
+                <select id="filter-price">
+                    <option value="all">Tất cả</option>
+                    <option value="under3">Dưới 3 triệu</option>
+                    <option value="3to4">3 – 4 triệu</option>
+                    <option value="over4">Trên 4 triệu</option>
+                </select>
+            </div>
+
+            <button type="button" id="btn-reset" class="btn-reset">Xóa bộ lọc</button>
+        </div>
+
+        <section class="tour-list">
+
+            <!-- 1. ĐÀ LẠT - tour1.html -->
+            <article class="tour-card" data-region="trung" data-price="2500000">
+                <img src="anh1.jpg" alt="Tour Đà Lạt - Thành phố mộng mơ" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Đà Lạt - Thành phố mộng mơ</h3>
+                    <div class="meta-row">
+                        <span> 3 ngày 2 đêm</span>
+                        <span> Đà Lạt</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">2.500.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(120 đánh giá)</span></div>
+                    </div>
+                    <a href="tour1.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 2. NHA TRANG - tour2.html -->
+            <article class="tour-card" data-region="trung" data-price="3200000">
+                <img src="anh2.jpg" alt="Tour Nha Trang - Vịnh biển xanh ngọc" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Nha Trang - Vịnh biển xanh ngọc</h3>
+                    <div class="meta-row">
+                        <span> 4 ngày 3 đêm</span>
+                        <span> Nha Trang</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">3.200.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(98 đánh giá)</span></div>
+                    </div>
+                    <a href="tour2.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 3. PHÚ QUỐC - tour3.html -->
+            <article class="tour-card" data-region="nam" data-price="4500000">
+                <img src="anh3.jpg" alt="Tour Phú Quốc - Đảo Ngọc Thiên Đường" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Phú Quốc - Đảo Ngọc Thiên Đường</h3>
+                    <div class="meta-row">
+                        <span> 3 ngày 2 đêm</span>
+                        <span> Phú Quốc</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">4.500.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(76 đánh giá)</span></div>
+                    </div>
+                    <a href="tour3.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 4. HÀ NỘI - HẠ LONG - hanoi-halong.html -->
+            <article class="tour-card" data-region="bac" data-price="4200000">
+                <img src="anh19.jpg" alt="Tour Hà Nội - Hạ Long" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Hà Nội - Hạ Long - Di sản ngàn năm</h3>
+                    <div class="meta-row">
+                        <span> 4 ngày 3 đêm</span>
+                        <span> Hà Nội - Hạ Long</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">4.200.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(150 đánh giá)</span></div>
+                    </div>
+                    <a href="hanoi-halong.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 5. SA PA - FANSIPAN - sapa-fansipan.html -->
+            <article class="tour-card" data-region="bac" data-price="4800000">
+                <img src="anh24.jpg" alt="Tour Sa Pa - Fansipan" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Sa Pa - Fansipan - Nóc nhà Đông Dương</h3>
+                    <div class="meta-row">
+                        <span> 4 ngày 3 đêm</span>
+                        <span> Sa Pa - Fansipan</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">4.800.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(88 đánh giá)</span></div>
+                    </div>
+                    <a href="sapa-fansipan.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 6. NINH BÌNH - TRÀNG AN - ninhbinh-trangiang.html -->
+            <article class="tour-card" data-region="bac" data-price="3600000">
+                <img src="anh29.jpg" alt="Tour Ninh Bình - Tràng An" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Ninh Bình - Tràng An - Non nước hữu tình</h3>
+                    <div class="meta-row">
+                        <span> 3 ngày 2 đêm</span>
+                        <span> Ninh Bình</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">3.600.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(65 đánh giá)</span></div>
+                    </div>
+                    <a href="ninhbinh-trangiang.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 7. HÀ GIANG - hagiang.html -->
+            <article class="tour-card" data-region="bac" data-price="5200000">
+                <img src="anh34.jpg" alt="Tour Hà Giang - Cao nguyên đá" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Hà Giang - Cao nguyên đá Đồng Văn</h3>
+                    <div class="meta-row">
+                        <span> 4 ngày 3 đêm</span>
+                        <span> Hà Giang</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">5.200.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(72 đánh giá)</span></div>
+                    </div>
+                    <a href="hagiang.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 8. ĐÀ NẴNG - HỘI AN - danang-hoian.html -->
+            <article class="tour-card" data-region="trung" data-price="4600000">
+                <img src="anh39.jpg" alt="Tour Đà Nẵng - Hội An" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Đà Nẵng - Hội An - Di sản miền Trung</h3>
+                    <div class="meta-row">
+                        <span> 4 ngày 3 đêm</span>
+                        <span> Đà Nẵng - Hội An</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">4.600.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(110 đánh giá)</span></div>
+                    </div>
+                    <a href="danang-hoian.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+            <!-- 9. HUẾ - ĐẠI NỘI - hue-dainoi.html -->
+            <article class="tour-card" data-region="trung" data-price="3500000">
+                <img src="anh40.jpg" alt="Tour Huế - Cố đô trầm mặc" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Huế - Cố đô trầm mặc</h3>
+                    <div class="meta-row">
+                        <span> 3 ngày 2 đêm</span>
+                        <span> Huế</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price">3.500.000 VNĐ</span>
+                        <div class="stars">★★★★★ <span>(83 đánh giá)</span></div>
+                    </div>
+                    <a href="hue-dainoi.html" class="btn">Xem chi tiết →</a>
+                </div>
+            </article>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+                    <div class="logo-text">
+                        <h1>VĂN HIẾN TRAVEL</h1>
+                    </div>
+                </div>
+                <p>Đồng hành cùng bạn trên mọi hành trình<br>khám phá Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>ĐT: 0348 223 097</p>
+                <p>Email: nguyenminhluan26012006@gmail.com</p>
+                <p>Đại học Văn Hiến, TP. Hồ Chí Minh</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về chúng tôi</h4>
+                <p>Văn Hiến Travel là dịch vụ du lịch trực thuộc Trường Đại học Văn Hiến, mang đến các tour du lịch chất lượng, an toàn và đáng nhớ.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Văn Hiến Travel.
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox" onclick="dongAnh()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Ảnh lớn">
+    </div>
+
+</body>
+</html>

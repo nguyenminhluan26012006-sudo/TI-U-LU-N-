@@ -1,0 +1,1007 @@
+/* ============================================================
+   VĂN HIẾN TRAVEL — STYLE.CSS (bản cơ bản, gọn, dễ đọc)
+   Tương thích: index, tour1/2/3, tintuc, lienhe, dangky,
+                lichsu, faq, gioithieu, chinhsach
+   ============================================================ */
+
+/* ---------- 1. RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #1a6bc4;
+    --primary-dark: #12508f;
+    --accent: #ff7a00;
+    --dark: #1e2a3a;
+    --gray: #6c757d;
+    --light: #f4f7fb;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+    transition: color 0.25s;
+}
+a:hover { color: var(--accent); }
+
+/* ---------- 2. HEADER ---------- */
+header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--primary), #a09182);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(26, 107, 196, 0.35);
+    overflow: hidden;   /* quan trọng: cắt ảnh theo khung tròn */
+    flex-shrink: 0;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* ảnh lấp đầy khung tròn */
+    display: block;
+}
+
+.logo-text h1 {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--primary);
+    line-height: 1.2;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: var(--gray);
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+nav a {
+    padding: 8px 14px;
+    border-radius: 8px;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14.5px;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ---------- 3. HERO ---------- */
+.hero {
+    background: linear-gradient(rgba(10, 30, 60, 0.55), rgba(10, 30, 60, 0.55)),
+                url("hero-bg.jpg") center/cover no-repeat;
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: #e7e3e3;
+}
+
+.hero-content h2 {
+    font-size: 44px;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    text-shadow: 0 3px 12px rgba(16, 15, 15, 0.4);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.btn-hero {
+    display: inline-block;
+    background: var(--accent);
+    color: #f8f2f2;
+    padding: 14px 38px;
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(255, 122, 0, 0.45);
+    transition: transform 0.2s, background 0.25s;
+}
+
+.btn-hero:hover {
+    background: #e06b00;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ---------- 4. CONTAINER & TIÊU ĐỀ ---------- */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 30px;
+    color: var(--dark);
+    margin-bottom: 8px;
+    position: relative;
+    padding-bottom: 14px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 4px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 34px;
+    font-size: 15.5px;
+}
+
+h3 {
+    margin: 30px 0 12px;
+    font-size: 21px;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--accent);
+    padding-left: 12px;
+}
+
+/* ---------- 5. NÚT CHUNG ---------- */
+.btn {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff !important;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+}
+
+.btn:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+}
+
+.btn-xoa {
+    background: #db1324;
+    color: #fff;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.btn-xoa:hover { background: #c1121f; }
+
+/* ---------- 6. SEARCH BOX ---------- */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 50px;
+    padding: 6px 8px 6px 20px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.25s;
+}
+
+.search-box:focus-within { border-color: var(--primary); }
+
+.search-icon {
+    font-size: 14px;
+    color: var(--primary);
+    font-weight: 700;
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px 6px;
+    font-size: 15px;
+    background: transparent;
+    color: var(--dark);
+}
+
+/* ---------- 7. FILTER BAR ---------- */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+    background: var(--white);
+    padding: 16px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.filter-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-group select {
+    padding: 9px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 14.5px;
+    background: var(--white);
+    color: var(--dark);
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.25s;
+}
+
+.filter-group select:focus { border-color: var(--primary); }
+
+.btn-reset {
+    padding: 9px 20px;
+    background: var(--gray);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s;
+}
+
+.btn-reset:hover { background: var(--dark); }
+
+/* ---------- 8. TOUR LIST & CARD ---------- */
+.tour-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+}
+
+.tour-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tour-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: zoom-in;
+    transition: transform 0.4s;
+}
+
+.tour-card:hover img { transform: scale(1.05); }
+
+.tour-info {
+    padding: 18px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.tour-info h3 {
+    font-size: 18.5px;
+    color: var(--dark);
+    margin: 0;
+    border: none;
+    padding: 0;
+    line-height: 1.4;
+}
+
+.meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--gray);
+}
+
+.meta-row span {
+    background: var(--light);
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+}
+
+.price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+.price {
+    color: #e63946;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.stars {
+    color: #f5a623;
+    font-size: 14px;
+}
+
+.stars span {
+    color: var(--gray);
+    font-size: 12.5px;
+}
+
+.tour-info p {
+    font-size: 14.5px;
+    color: #445;
+}
+
+.tour-info .btn {
+    margin-top: auto;
+    text-align: center;
+}
+
+/* ---------- 9. CHI TIẾT TOUR ---------- */
+.tour-detail-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+    margin: 20px 0 10px;
+}
+
+.tour-img {
+    width: 100%;
+    height: 100%;
+    min-height: 330px;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    cursor: zoom-in;
+}
+
+.info-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* info-row: dùng cho HTML mới (<p class="info-row">) */
+.info-box p,
+.info-box .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 15px;
+    gap: 10px;
+}
+
+.info-box p:last-of-type,
+.info-box .info-row:last-of-type {
+    border-bottom: none;
+}
+
+.info-box strong {
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.info-box span {
+    color: var(--dark);
+    font-weight: 600;
+    text-align: right;
+}
+
+.price-tag {
+    display: block;
+    margin-top: 14px;
+    background: linear-gradient(135deg, var(--accent), #ffb347);
+    color: #fff;
+    font-size: 21px;
+    font-weight: 800;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(255, 122, 0, 0.4);
+}
+
+/* ---------- 10. TIMELINE (có data-day) ---------- */
+.timeline {
+    position: relative;
+    margin: 20px 0 10px 10px;
+    padding-left: 28px;
+    border-left: 3px solid var(--primary);
+}
+
+.timeline-item {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+/* Chấm tròn: nếu có data-day thì hiện số, không thì hiện chấm */
+.timeline-item::before {
+    content: attr(data-day);
+    position: absolute;
+    left: -44px;
+    top: 16px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    background: var(--accent);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px var(--primary);
+}
+
+.timeline-item h4 {
+    color: var(--primary-dark);
+    font-size: 16.5px;
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    font-size: 14.5px;
+    color: #445;
+    margin: 3px 0;
+    padding-left: 16px;
+    position: relative;
+}
+
+.timeline-item p::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 900;
+}
+
+/* ---------- 11. INCLUDE BOX ---------- */
+.include-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin: 16px 0 10px;
+}
+
+.include-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid #2a9d8f;
+}
+
+.include-box.no { border-top-color: #e63946; }
+
+.include-box h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: #2a9d8f;
+}
+
+.include-box.no h4 { color: #e63946; }
+
+.include-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.include-box li {
+    padding: 6px 0 6px 24px;
+    position: relative;
+    font-size: 14.5px;
+    color: #445;
+    border-bottom: 1px dashed #eef1f5;
+}
+
+.include-box li:last-child { border-bottom: none; }
+
+.include-box li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #2a9d8f;
+    font-weight: 700;
+}
+
+.include-box.no li::before {
+    content: "✖";
+    color: #e63946;
+}
+
+/* ---------- 12. GALLERY (hỗ trợ cả table cũ và div mới) ---------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 18px auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    cursor: zoom-in;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 10px 28px rgba(15, 95, 168, 0.25);
+}
+
+/* Fallback cho trang cũ còn dùng table */
+.gallery-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 14px;
+    margin: 16px auto;
+}
+
+.gallery-table td { width: 25%; }
+
+.gallery-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    cursor: zoom-in;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- 13. LIGHTBOX ---------- */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    cursor: zoom-out;
+}
+
+.lightbox.active { display: flex; }
+
+#lightbox-img {
+    max-width: 92%;
+    max-height: 88vh;
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.85); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    font-size: 46px;
+    color: #fff;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.25s;
+}
+
+.lightbox-close:hover { color: var(--accent); }
+
+/* ---------- 14. FAQ ---------- */
+.faq-item {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 16px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--primary);
+    transition: border-color 0.25s;
+}
+
+.faq-item:hover { border-left-color: var(--accent); }
+
+.faq-item strong {
+    display: block;
+    color: var(--primary-dark);
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.faq-item p {
+    font-size: 14.5px;
+    color: #445;
+}
+
+/* ---------- 15. FORM ---------- */
+form label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 14.5px;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+form input[type="text"]:focus,
+form textarea:focus,
+form select:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(26, 107, 196, 0.15);
+    outline: none;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+    font-family: inherit;
+    font-weight: 600;
+    transition: background 0.25s, transform 0.2s;
+}
+
+form input[type="submit"]:hover {
+    background: var(--accent) !important;
+    transform: translateY(-2px);
+}
+
+form input[type="reset"]:hover {
+    background: var(--dark) !important;
+}
+
+/* ---------- 16. SMART TOUR PICKER ---------- */
+.smart-tour-picker {
+    background: #fbfdff;
+    border: 1.5px dashed var(--primary);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin: 12px 0 20px;
+}
+
+.tour-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 12px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.tour-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+    transition: border-color 0.25s, background 0.25s;
+}
+
+.tour-option:hover {
+    border-color: var(--primary);
+    background: #f0f7ff;
+}
+
+.tour-option input[type="checkbox"] {
+    width: 19px;
+    height: 19px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.empty-msg {
+    color: #e63946;
+    font-style: italic;
+    font-size: 14.5px;
+}
+
+/* ---------- 17. QTY BOX ---------- */
+.qty-box {
+    display: inline-flex;
+    align-items: stretch;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--white);
+    margin-top: 5px;
+}
+
+.qty-box input {
+    width: 70px;
+    text-align: center;
+    border: none !important;
+    outline: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    background: var(--white);
+    padding: 8px 0;
+}
+
+.qty-arrows {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid var(--border);
+}
+
+.qty-arrows button {
+    flex: 1;
+    width: 34px;
+    border: none;
+    background: #eef3fa;
+    color: var(--primary);
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.qty-arrows button:first-child { border-bottom: 1px solid var(--border); }
+
+.qty-arrows button:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ---------- 18. LỊCH SỬ GIAO DỊCH ---------- */
+#ketQua { margin-top: 24px; }
+
+#ketQua table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#ketQua th {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 14.5px;
+}
+
+#ketQua td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+}
+
+#ketQua tr:nth-child(even) td { background: #f8fbff; }
+#ketQua tr:hover td { background: #eef5ff; }
+
+/* ---------- 19. FOOTER ---------- */
+footer {
+    background: var(--dark);
+    color: #cfd8e3;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+.footer-grid {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 20px 30px;
+}
+
+.footer-col h4 {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 14px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 42px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+    color: #b7c2d0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.footer-logo .logo-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 22px;
+}
+
+.footer-logo .logo-text h1 {
+    color: #fff;
+    font-size: 17px;
+}
+
+.footer-bottom {
+    background: #16202c;
+    text-align: center;
+    padding: 16px;
+    font-size: 13.5px;
+    color: #8a97a8;
+    border-top: 1px solid #263445;
+}
+
+/* ---------- 20. RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .tour-detail-grid { grid-template-columns: 1fr; }
+    .tour-img { min-height: 240px; max-height: 320px; }
+    .include-grid { grid-template-columns: 1fr; }
+    .hero-content h2 { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav { width: 100%; }
+    nav a { padding: 7px 10px; font-size: 13.5px; }
+    .section-title { font-size: 24px; }
+
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid img { height: 130px; }
+
+    .gallery-table { display: block; border-spacing: 0; }
+    .gallery-table tr {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .gallery-table td { width: 100%; }
+    .gallery-img { height: 130px; }
+
+    .filter-bar { flex-direction: column; align-items: stretch; }
+    .filter-group select { width: 100%; }
+    .hero { min-height: 380px; }
+    .hero-content h2 { font-size: 26px; }
+    .hero-content p { font-size: 15.5px; }
+    .btn-hero { padding: 12px 30px; font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-table tr { grid-template-columns: 1fr; }
+    .timeline { padding-left: 22px; margin-left: 4px; }
+    .timeline-item::before { left: -38px; }
+    .price-tag { font-size: 18px; }
+}

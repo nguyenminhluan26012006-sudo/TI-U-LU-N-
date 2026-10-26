@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký Tour Du Lịch - Văn Hiến</title>
+    <meta name="description" content="Đăng ký tour du lịch Văn Hiến Travel: Đà Lạt, Nha Trang, Phú Quốc, Sa Pa, Hà Nội - Hạ Long, Đà Nẵng - Hội An, Huế, Ninh Bình, Hà Giang.">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+    <div class="logo-text">
+        <h1><a href="index.html" class="active">VĂN HIẾN TRAVEL</a></h1>
+        <p>Cùng bạn khám phá những hành trình tuyệt vời</p>
+    </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="tintuc.html">Tin tức</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <a href="lichsu.html">Lịch sử giao dịch</a>
+            <a href="faq.html">Câu hỏi thường gặp</a>
+            <a href="chinhsach.html">Chính sách</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Đăng Ký Tour Du Lịch</h2>
+        <p class="section-subtitle">Điền thông tin để đặt tour ngay hôm nay</p>
+
+        <form name="frmDangKy">
+            <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; background: #fff; max-width: 600px; margin: 0 auto;">
+
+                <p>
+                    <label>Tên khách hàng:</label><br>
+                    <input type="text" name="txtTen" size="30" placeholder="Nhập họ và tên..." style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </p>
+
+                <p>
+                    <label>Số điện thoại:</label><br>
+                    <input type="text" name="txtSDT" size="30" placeholder="Nhập số điện thoại..." style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </p>
+
+                <p>
+                    <label>Chọn Tour (tích vào các tour bạn muốn):</label>
+                </p>
+
+                <!-- KHU VỰC CHỌN TOUR THÔNG MINH -->
+                <div class="smart-tour-picker">
+
+                    <!-- Thanh tìm kiếm -->
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="search-tour" placeholder="Gõ tên tour để tìm nhanh (VD: Đà Lạt)...">
+                    </div>
+
+                    <!-- Bộ lọc -->
+                    <div class="filter-bar" style="max-width: 100%; margin: 0 0 15px; padding: 10px 15px; box-shadow: none; border: 1px solid #ddd;">
+                        <div class="filter-group">
+                            <label for="filter-region">Vùng miền</label>
+                            <select id="filter-region">
+                                <option value="all">Tất cả</option>
+                                <option value="bac">Miền Bắc</option>
+                                <option value="trung">Miền Trung</option>
+                                <option value="nam">Miền Nam</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="filter-price">Khoảng giá</label>
+                            <select id="filter-price">
+                                <option value="all">Tất cả</option>
+                                <option value="under3">Dưới 3 triệu</option>
+                                <option value="3to4">3 – 4 triệu</option>
+                                <option value="over4">Trên 4 triệu</option>
+                            </select>
+                        </div>
+                        <button type="button" id="btn-reset" class="btn-reset">Xóa bộ lọc</button>
+                    </div>
+
+                    <!-- Danh sách tour -->
+                    <div class="tour-options" id="tour-options-list">
+
+                        <label class="tour-option" data-region="trung" data-price="2500000">
+                            <input type="checkbox" name="chkTour" value="2500000" class="tour-checkbox"
+                                   data-ma="DL-3N2D" data-ten="Tour Đà Lạt - Thành phố mộng mơ">
+                            Tour Đà Lạt - 2.500.000 VNĐ (3N2Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="trung" data-price="3200000">
+                            <input type="checkbox" name="chkTour" value="3200000" class="tour-checkbox"
+                                   data-ma="NT-4N3D" data-ten="Tour Nha Trang - Vịnh biển xanh ngọc">
+                            Tour Nha Trang - 3.200.000 VNĐ (4N3Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="nam" data-price="4500000">
+                            <input type="checkbox" name="chkTour" value="4500000" class="tour-checkbox"
+                                   data-ma="PQ-3N2D" data-ten="Tour Phú Quốc - Đảo Ngọc Thiên Đường">
+                            Tour Phú Quốc - 4.500.000 VNĐ (3N2Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="bac" data-price="4200000">
+                            <input type="checkbox" name="chkTour" value="4200000" class="tour-checkbox"
+                                   data-ma="HN-HL-4N3D" data-ten="Tour Hà Nội - Hạ Long">
+                            Tour Hà Nội - Hạ Long - 4.200.000 VNĐ (4N3Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="bac" data-price="4800000">
+                            <input type="checkbox" name="chkTour" value="4800000" class="tour-checkbox"
+                                   data-ma="SP-FS-4N3D" data-ten="Tour Sa Pa - Fansipan">
+                            Tour Sa Pa - Fansipan - 4.800.000 VNĐ (4N3Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="bac" data-price="3600000">
+                            <input type="checkbox" name="chkTour" value="3600000" class="tour-checkbox"
+                                   data-ma="NB-TA-3N2D" data-ten="Tour Ninh Bình - Tràng An">
+                            Tour Ninh Bình - Tràng An - 3.600.000 VNĐ (3N2Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="bac" data-price="5200000">
+                            <input type="checkbox" name="chkTour" value="5200000" class="tour-checkbox"
+                                   data-ma="HG-DV-4N3D" data-ten="Tour Hà Giang - Cao nguyên đá Đồng Văn">
+                            Tour Hà Giang - 5.200.000 VNĐ (4N3Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="trung" data-price="4600000">
+                            <input type="checkbox" name="chkTour" value="4600000" class="tour-checkbox"
+                                   data-ma="DN-HA-4N3D" data-ten="Tour Đà Nẵng - Hội An">
+                            Tour Đà Nẵng - Hội An - 4.600.000 VNĐ (4N3Đ)
+                        </label>
+
+                        <label class="tour-option" data-region="trung" data-price="3500000">
+                            <input type="checkbox" name="chkTour" value="3500000" class="tour-checkbox"
+                                   data-ma="HUE-3N2D" data-ten="Tour Huế - Cố đô trầm mặc">
+                            Tour Huế - 3.500.000 VNĐ (3N2Đ)
+                        </label>
+
+                    </div>
+
+                    <p class="empty-msg" id="tour-empty" style="display: none; padding: 10px 0; margin: 0;">
+                        Không tìm thấy tour nào phù hợp!
+                    </p>
+                </div>
+
+                <p>
+                    <label>Số lượng (Người lớn):</label><br>
+                    <div class="qty-box">
+                        <input type="text" name="soluong" id="soluong" value="1" readonly>
+                        <div class="qty-arrows">
+                            <button type="button" class="qty-up" onclick="tangSoLuong('soluong')">▲</button>
+                            <button type="button" class="qty-down" onclick="giamSoLuong('soluong')">▼</button>
+                        </div>
+                    </div>
+                </p>
+
+                <p>
+                    <label>Trẻ em:</label><br>
+                    <div class="qty-box">
+                        <input type="text" name="treem" id="treem" value="0" readonly>
+                        <div class="qty-arrows">
+                            <button type="button" class="qty-up" onclick="tangSoLuong('treem')">▲</button>
+                            <button type="button" class="qty-down" onclick="giamSoLuong('treem')">▼</button>
+                        </div>
+                    </div>
+                </p>
+
+                <p>
+                    <label>Ghi chú:</label><br>
+                    <textarea name="ghichu" rows="4" cols="30" placeholder="Yêu cầu đặc biệt..." style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;"></textarea>
+                </p>
+
+                <p>
+                    <label>Voucher:</label><br>
+                    <input type="text" name="voucher" id="voucher" size="20" placeholder="Nhập mã voucher..." style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                </p>
+
+                <p>
+                    <label>Tổng tiền:</label><br>
+                    <input type="text" name="tongtien" size="20" value="0 VNĐ" readonly style="width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; background: #f5f5f5;">
+                </p>
+
+                <p style="text-align: center;">
+                    <input type="submit" name="btnGui" value="Đăng Ký" style="padding: 10px 25px; background: #1a6bc4; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                    <input type="reset" name="btnHuy" value="Nhập Lại" style="padding: 10px 25px; background: #6c757d; color: #fff; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                </p>
+
+            </div>
+        </form>
+    </div>
+
+   <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+                    <div class="logo-text">
+                        <h1>VĂN HIẾN TRAVEL</h1>
+                    </div>
+                </div>
+                <p>Đồng hành cùng bạn trên mọi hành trình<br>khám phá Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>ĐT: 0348 223 097</p>
+                <p>Email: nguyenminhluan26012006@gmail.com</p>
+                <p>Đại học Văn Hiến, TP. Hồ Chí Minh</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về chúng tôi</h4>
+                <p>Văn Hiến Travel là dịch vụ du lịch trực thuộc Trường Đại học Văn Hiến, mang đến các tour du lịch chất lượng, an toàn và đáng nhớ.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Văn Hiến Travel.
+        </div>
+    </footer>
+
+
+    <div id="lightbox" class="lightbox" onclick="dongAnh()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Ảnh lớn">
+    </div>
+</body>
+</html>

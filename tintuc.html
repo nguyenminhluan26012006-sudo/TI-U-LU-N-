@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức - Tour Du Lịch Văn Hiến</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+   <header>
+        <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+    <div class="logo-text">
+        <h1><a href="index.html" class="active">VĂN HIẾN TRAVEL</a></h1>
+        <p>Cùng bạn khám phá những hành trình tuyệt vời</p>
+    </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <a href="lichsu.html">Lịch sử giao dịch</a>
+            <a href="faq.html">Câu hỏi thường gặp</a>
+            <a href="chinhsach.html">Chính sách</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Tin Tức &amp; Cẩm Nang Du Lịch</h2>
+        <p class="section-subtitle">Cập nhật những thông tin hữu ích cho chuyến đi của bạn</p>
+
+        <section class="tour-list">
+
+            <article class="tour-card">
+                <img src="anh4.jpg" alt="Kinh nghiệm du lịch Đà Lạt" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>10 điều cần biết khi đi Đà Lạt mùa cỏ hồng</h3>
+                    <div class="meta-row">
+                        <span>📅 15/10/2026</span>
+                    </div>
+                    <p>Mùa cỏ hồng Đà Lạt thường bắt đầu từ tháng 11, đây là thời điểm lý tưởng để săn ảnh đẹp...</p>
+                    <a href="dieucanbiet.html" class="btn">Đọc tiếp →</a>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <img src="anh8.jpg" alt="Du lịch Nha Trang" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Top 5 bãi biển đẹp nhất Nha Trang</h3>
+                    <div class="meta-row">
+                        <span>📅 10/10/2026</span>
+                    </div>
+                    <p>Nha Trang nổi tiếng với những bãi biển xanh ngọc, cát trắng mịn và nắng vàng...</p>
+                    <a href="top5nhatrang.html" class="btn">Đọc tiếp →</a>
+                </div>
+            </article>
+
+            <article class="tour-card">
+                <img src="anh12.jpg" alt="Du lịch Phú Quốc" onclick="phongToAnh(this)">
+                <div class="tour-info">
+                    <h3>Kinh nghiệm đi cáp treo Hòn Thơm</h3>
+                    <div class="meta-row">
+                        <span>📅 05/10/2026</span>
+                    </div>
+                    <p>Cáp treo Hòn Thơm dài nhất thế giới với view biển tuyệt đẹp, bạn nhất định phải thử...</p>
+                    <a href="kinhnghiem.html" class="btn">Đọc tiếp →</a>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+                    <div class="logo-text">
+                        <h1>VĂN HIẾN TRAVEL</h1>
+                    </div>
+                </div>
+                <p>Đồng hành cùng bạn trên mọi hành trình<br>khám phá Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>ĐT: 0348 223 097</p>
+                <p>Email: nguyenminhluan26012006@gmail.com</p>
+                <p>Đại học Văn Hiến, TP. Hồ Chí Minh</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về chúng tôi</h4>
+                <p>Văn Hiến Travel là dịch vụ du lịch trực thuộc Trường Đại học Văn Hiến, mang đến các tour du lịch chất lượng, an toàn và đáng nhớ.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Văn Hiến Travel.
+        </div>
+    </footer>
+
+
+    <div id="lightbox" class="lightbox" onclick="dongAnh()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Ảnh lớn">
+    </div>
+
+</body>
+</html>

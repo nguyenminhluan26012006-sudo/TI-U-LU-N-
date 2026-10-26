@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử giao dịch - Tour Du Lịch Văn Hiến</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+     <header>
+        <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+    <div class="logo-text">
+        <h1><a href="index.html" class="active">VĂN HIẾN TRAVEL</a></h1>
+        <p>Cùng bạn khám phá những hành trình tuyệt vời</p>
+    </div>
+        <nav>
+            <a href="index.html">Trang chủ</a>
+            <a href="gioithieu.html">Giới thiệu</a>
+            <a href="tintuc.html">Tin tức</a>
+            <a href="lienhe.html">Liên hệ</a>
+            <a href="faq.html">Câu hỏi thường gặp</a>
+            <a href="chinhsach.html">Chính sách</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Lịch Sử Giao Dịch</h2>
+        <p class="section-subtitle">Xem lại các giao dịch đã thực hiện trên trình duyệt</p>
+
+        <p style="text-align: center;">
+            <button type="button" onclick="xoaLichSu()" class="btn-xoa">Xóa toàn bộ lịch sử</button>
+        </p>
+
+        <div id="ketQua"></div>
+    </div>
+
+   <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+    <div class="logo-icon">
+        <img src="anh1.png" alt="Văn Hiến Travel Logo">
+    </div>
+                    <div class="logo-text">
+                        <h1>VĂN HIẾN TRAVEL</h1>
+                    </div>
+                </div>
+                <p>Đồng hành cùng bạn trên mọi hành trình<br>khám phá Việt Nam.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liên hệ</h4>
+                <p>ĐT: 0348 223 097</p>
+                <p>Email: nguyenminhluan26012006@gmail.com</p>
+                <p>Đại học Văn Hiến, TP. Hồ Chí Minh</p>
+            </div>
+            <div class="footer-col">
+                <h4>Về chúng tôi</h4>
+                <p>Văn Hiến Travel là dịch vụ du lịch trực thuộc Trường Đại học Văn Hiến, mang đến các tour du lịch chất lượng, an toàn và đáng nhớ.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Văn Hiến Travel.
+        </div>
+    </footer>
+
+
+    <div id="lightbox" class="lightbox" onclick="dongAnh()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Ảnh lớn">
+    </div>
+
+</body>
+</html>
