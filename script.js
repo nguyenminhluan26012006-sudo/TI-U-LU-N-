@@ -234,18 +234,39 @@ function guiLenGoogleSheet(gd) {
 // ============================================================
 // 9. LỊCH SỬ GIAO DỊCH
 // ============================================================
-function hienThiLichSu() {
+
+// Biến lưu toàn bộ lịch sử gốc (đọc từ localStorage)
+var toanBoLichSu = [];
+
+// Đọc lịch sử từ localStorage vào biến toàn cục
+function docLichSuGoc() {
+    try {
+        toanBoLichSu = JSON.parse(localStorage.getItem("lichSuGiaoDich")) || [];
+        if (!Array.isArray(toanBoLichSu)) toanBoLichSu = [];
+    } catch (e) {
+        console.error("Lỗi đọc lịch sử:", e);
+        toanBoLichSu = [];
+    }
+}
+
+// Hiển thị lịch sử — nhận danh sách tùy chọn
+function hienThiLichSu(danhSach) {
     var ketQua = document.getElementById("ketQua");
     if (!ketQua) return;
 
-    var ds = JSON.parse(localStorage.getItem("lichSuGiaoDich")) || [];
-    if (ds.length == 0) {
+    // Nếu không truyền vào thì đọc từ localStorage (giữ tương thích cũ)
+    if (typeof danhSach === "undefined") {
+        docLichSuGoc();
+        danhSach = toanBoLichSu.slice();
+    }
+
+    if (!danhSach || danhSach.length == 0) {
         ketQua.innerHTML = "<p class='thong-bao-rong'>Chưa có giao dịch nào.</p>";
         return;
     }
 
-    // đảo ngược để mới nhất lên đầu
-    ds = ds.reverse();
+    // đảo ngược để mới nhất lên đầu (không đổi mảng gốc)
+    var ds = danhSach.slice().reverse();
 
     var html = "<table>";
     html += "<tr><th>STT</th><th>Tên khách</th><th>SĐT</th>";
@@ -274,9 +295,106 @@ function hienThiLichSu() {
 function xoaLichSu() {
     if (confirm("Bạn có chắc muốn xóa toàn bộ lịch sử giao dịch?")) {
         localStorage.removeItem("lichSuGiaoDich");
+        toanBoLichSu = [];
         hienThiLichSu();
+        datLaiLocNgay();
         alert("Đã xóa toàn bộ lịch sử!");
     }
+}
+
+// ============================================================
+// 9b. BỘ LỌC NGÀY CHO TRANG LỊCH SỬ
+// ============================================================
+
+// Lấy đối tượng Date từ một giao dịch (hỗ trợ nhiều tên trường)
+function layNgayGiaoDich(gd) {
+    if (!gd) return null;
+    var raw = gd.thoiGian || gd.ngay || gd.date || gd.createdAt || gd.time;
+    if (!raw) return null;
+
+    // thoiGian lưu dạng "dd/mm/yyyy, hh:mm:ss" (toLocaleString vi-VN)
+    // -> chuyển về Date an toàn
+    var d = null;
+    if (typeof raw === "string") {
+        // thử parse trực tiếp trước
+        d = new Date(raw);
+
+        // nếu fail, thử tách theo định dạng vi-VN dd/mm/yyyy
+        if (isNaN(d.getTime())) {
+            var m = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+            if (m) {
+                d = new Date(Number(m[3]), Number(m[2]) - 1, Number(m[1]));
+            }
+        }
+    } else {
+        d = new Date(raw);
+    }
+
+    return (d && !isNaN(d.getTime())) ? d : null;
+}
+
+// Định dạng Date -> yyyy-mm-dd cho input[type=date]
+function dinhDangNgayInput(date) {
+    var y = date.getFullYear();
+    var m = String(date.getMonth() + 1).padStart(2, "0");
+    var d = String(date.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + d;
+}
+
+// Định dạng yyyy-mm-dd -> dd/mm/yyyy để hiển thị
+function dinhDangNgayHienThi(str) {
+    if (!str) return "";
+    var parts = str.split("-");
+    if (parts.length != 3) return str;
+    return parts[2] + "/" + parts[1] + "/" + parts[0];
+}
+
+// Áp dụng lọc theo khoảng ngày
+function apDungLocNgay() {
+    var tuStr = document.getElementById("tuNgay").value;
+    var denStr = document.getElementById("denNgay").value;
+
+    if (!tuStr || !denStr) {
+        alert('Vui lòng chọn cả "Từ ngày" và "Đến ngày" để lọc.');
+        return;
+    }
+
+    var tu = new Date(tuStr + "T00:00:00");
+    var den = new Date(denStr + "T23:59:59");
+
+    if (tu > den) {
+        alert('"Từ ngày" phải nhỏ hơn hoặc bằng "Đến ngày".');
+        return;
+    }
+
+    var ketQuaLoc = [];
+    for (var i = 0; i < toanBoLichSu.length; i++) {
+        var d = layNgayGiaoDich(toanBoLichSu[i]);
+        if (d && d >= tu && d <= den) {
+            ketQuaLoc.push(toanBoLichSu[i]);
+        }
+    }
+
+    hienThiLichSu(ketQuaLoc);
+
+    // Hiển thị tóm tắt số lượng tour đăng ký
+    document.getElementById("tomTatLoc").innerHTML =
+        "Trong khoảng <b>" + dinhDangNgayHienThi(tuStr) + "</b> đến <b>" +
+        dinhDangNgayHienThi(denStr) + "</b>: đăng ký <b>" +
+        ketQuaLoc.length + "</b> tour.";
+}
+
+// Đặt lại bộ lọc
+function datLaiLocNgay() {
+    var tu = document.getElementById("tuNgay");
+    var den = document.getElementById("denNgay");
+    var tomTat = document.getElementById("tomTatLoc");
+
+    if (tu) tu.value = "";
+    if (den) den.value = "";
+    if (tomTat) tomTat.textContent = "";
+
+    hienThiLichSu(toanBoLichSu);
 }
 
 // ============================================================
@@ -417,7 +535,16 @@ window.onload = function () {
 
     // --- Trang lịch sử ---
     if (document.getElementById("ketQua")) {
-        hienThiLichSu();
+        docLichSuGoc();
+        hienThiLichSu(toanBoLichSu);
+
+        var btnLoc = document.getElementById("btnLoc");
+        var btnDatLai = document.getElementById("btnDatLai");
+        var btnXoa = document.getElementById("btnXoaLichSu");
+
+        if (btnLoc) btnLoc.onclick = apDungLocNgay;
+        if (btnDatLai) btnDatLai.onclick = datLaiLocNgay;
+        if (btnXoa) btnXoa.onclick = xoaLichSu;
     }
 
     // --- Phím Esc đóng lightbox ---
