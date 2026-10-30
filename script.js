@@ -83,10 +83,13 @@ function tinhTongTien() {
         }
     }
 
-    var nguoiLon = parseInt(form.soluong.value, 10) || 0;
-    var treEm = parseInt(form.treem.value, 10) || 0;
-    if (nguoiLon < 0) nguoiLon = 0;
-    if (treEm < 0) treEm = 0;
+    // Người lớn: luôn ít nhất 1
+    var nguoiLon = parseInt(form.soluong.value, 10);
+    if (isNaN(nguoiLon) || nguoiLon < 1) nguoiLon = 1;
+
+    // Trẻ em: ít nhất 0
+    var treEm = parseInt(form.treem.value, 10);
+    if (isNaN(treEm) || treEm < 0) treEm = 0;
 
     var tong = tongGiaTour * nguoiLon + tongGiaTour * treEm * 0.5;
 
@@ -482,6 +485,29 @@ window.onload = function () {
         var voucherEl = document.getElementById("voucher");
         if (voucherEl) voucherEl.oninput = tinhTongTien;
 
+        form.soluong.oninput = function () {
+            this.value = this.value.replace(/[^\d]/g, ""); // chỉ giữ số
+            tinhTongTien();
+        };
+        form.treem.oninput = function () {
+            this.value = this.value.replace(/[^\d]/g, "");
+            tinhTongTien();
+        };
+
+        // Khi rời ô thì chuẩn hóa giá trị
+        form.soluong.onblur = function () {
+            var n = parseInt(this.value, 10);
+            if (isNaN(n) || n < 1) n = 1;
+            this.value = n;
+            tinhTongTien();
+        };
+        form.treem.onblur = function () {
+            var n = parseInt(this.value, 10);
+            if (isNaN(n) || n < 0) n = 0;
+            this.value = n;
+            tinhTongTien();
+        };
+
         // submit
         form.onsubmit = function (e) {
             e.preventDefault();
@@ -552,3 +578,61 @@ window.onload = function () {
         if (e.key == "Escape") dongAnh();
     };
 };
+// ============================================================
+// 13. XỬ LÝ FORM LIÊN HỆ
+// ============================================================
+function xuLyLienHe() {
+    var form = document.frmLienHe;
+    if (!form) return false;
+
+    var hoTen   = form.txtHoTen.value.trim();
+    var email   = form.txtEmail.value.trim();
+    var tieuDe  = form.txtTieuDe.value.trim();
+    var noiDung = form.txtNoiDung.value.trim();
+
+    // --- Kiểm tra dữ liệu ---
+    if (hoTen === "") {
+        alert("Vui lòng nhập họ và tên!");
+        form.txtHoTen.focus();
+        return false;
+    }
+
+    if (email === "") {
+        alert("Vui lòng nhập email!");
+        form.txtEmail.focus();
+        return false;
+    }
+
+    // kiểm tra định dạng email đơn giản
+    var reEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!reEmail.test(email)) {
+        alert("Email không hợp lệ!");
+        form.txtEmail.focus();
+        return false;
+    }
+
+    if (tieuDe === "") {
+        alert("Vui lòng nhập tiêu đề!");
+        form.txtTieuDe.focus();
+        return false;
+    }
+
+    if (noiDung === "") {
+        alert("Vui lòng nhập nội dung tin nhắn!");
+        form.txtNoiDung.focus();
+        return false;
+    }
+
+    // --- Thông báo thành công ---
+    alert(
+        "GỬI LIÊN HỆ THÀNH CÔNG!\n\n" +
+        "Cảm ơn bạn, " + hoTen + ".\n" +
+        "Chúng tôi đã nhận được tin nhắn và sẽ phản hồi qua email:\n" +
+        email + "\n\n" +
+        "Tiêu đề: " + tieuDe
+    );
+
+    form.reset();
+
+    return false; 
+}
